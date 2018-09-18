@@ -1,7 +1,6 @@
 {
   "name": "intro-fetch-lab",
   "description": "Practicing fetch using SWAPI and Numbers API.",
-  "main": "index.js",
   "scripts": {
     "postinstall": "gem install learn-co",
     "test":
