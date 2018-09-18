@@ -63,9 +63,33 @@ describe('numbers.js', () => {
     it('On change of the number input, fetch a math fact about that number', () => {
       expect(myFunction(9001)).to.be.true
     })
-
-    it('description of behavior when the function is invoked in a different situation', () => {
+    it('When the promise is resolved, show the math fact on the screen in the `#random-math-fact` div', () => {
       expect(myFunction(42)).to.be.false
+    })
+    it('Validates that the input is a number', () => {
+      expect(myFunction(42)).to.be.false
+    })
+  })
+  // we aren't quite sure how to do this?
+  describe('Those who fail to study history', () => {
+    it('When the page loads, fetch a fact about this year', () => {
+      expect(myFunction(9001)).to.be.true
+    })
+    it('When the promise is resolved, the fact should be displayed in the `#year-history` div', () => {
+      expect(myFunction(9001)).to.be.true
+    })
+    // how do we test setInterval callback functions?
+    it('Every five seconds, the previous year`s fact should be fetched', () => {
+      expect(myFunction(9001)).to.be.true
+    })
+  })
+
+  describe('All the Numbers', () => {
+    it('When a user clicks the button, fetch facts for one hundred random numbers', () => {
+      expect(myFunction(9001)).to.be.true
+    })
+    it('When the promise is resolved, all facts should be displayed in the `#all-the-numbers` div', () => {
+      expect(myFunction(9001)).to.be.true
     })
   })
 })
