@@ -8,6 +8,8 @@ In this lab, you'll use `fetch` to send GET requests. First we're going to use `
 
 ### SWAPI
 
+_Code your solution in swapi.js_
+
 API Documentation for SWAPI is at [https://swapi.co/documentation](https://swapi.co/documentation)
 
 1.  Opening Crawl - Star Wars Episode 4 (Film #1)
@@ -67,6 +69,8 @@ promiseForData
     * When should you add the event listener for these two buttons?
 
 ### NERDY NUMBERS
+
+_Code your solution in numbers.js_
 
 The [Numbers API](http://numbersapi.com/) is, in their words
 
