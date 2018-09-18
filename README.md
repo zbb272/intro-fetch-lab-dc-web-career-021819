@@ -51,14 +51,15 @@ promiseForData
 
 2.  Star Wars Planets
 
-* Using the input form, a user should choose a number corresponding a some planet id (only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number)
+* Using the input form, a user should choose a number corresponding to some planet id
 * Fetch that planet's data from the correct url
 * Display the name and climate of the planet in the `#planetData`
+* Only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number
 
 3.  These Are The Droids You're Looking For
 
 * When the page loads, fetch the data for the characters C-3P0 (id: 2) and R2-D2 (id: 3)
-* Show each droid's name, height, and mass on the screen in the `#droidData`
+* Show each droid's name, height, and mass on the screen in the `#droid-2` and `#droid-3`
 * Display a button for each droid that reads 'Show Homeworld Details'
 * On click, this button should fetch to the api _again_ to get information about the planet
 
@@ -108,12 +109,6 @@ Let's nerd out.
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
-
-## Instructions for instructors (**_DELETE ME WHEN FINISHED_**)
-
-There are 15 TODOs in this repository:
-
-* `test/indexTest.js`: 1
 
 ## Resources
 
