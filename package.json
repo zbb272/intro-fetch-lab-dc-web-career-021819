@@ -1,0 +1,32 @@
+{
+  "name": "intro-fetch-lab",
+  "description": "Practicing fetch using SWAPI and Numbers API.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "gem install learn-co",
+    "test":
+      "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/learn-co-curriculum/intro-fetch-lab.git"
+  },
+  "keywords": [
+    "learn",
+    "flatiron school",
+    "javascript",
+    "lab",
+    "fetch",
+    "promise",
+    "DOM manipulation"
+  ],
+  "author": "Flatiron School",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/intro-fetch-lab/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/intro-fetch-lab#readme",
+  "devDependencies": {
+    "learn-browser": "^0.1.14"
+  }
+}
