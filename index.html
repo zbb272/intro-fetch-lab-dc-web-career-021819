@@ -65,7 +65,7 @@
   <!-- Include Mocha and set it up for BDD-style testing. -->
   <script src="node_modules/mocha/mocha.js"></script>
   <script>
-  mocha.setup('bdd')
+  mocha.setup("bdd");
 </script>
 
   <!-- Include Chai as the matcher library. -->
@@ -73,6 +73,9 @@
 
   <!-- Include Sinon as the library for spies, stubs, and mocks. -->
   <script src="node_modules/sinon/pkg/sinon.js"></script>
+
+  <!-- Include Sinon-Chai expectations for spies. -->
+  <script src="node_modules/sinon-chai/lib/sinon-chai.js"></script>
 
   <!-- Include the student's JavaScript file(s). -->
   <script type="text/javascript" src="swapi.js"></script>
