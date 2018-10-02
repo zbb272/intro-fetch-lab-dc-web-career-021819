@@ -36,12 +36,29 @@ describe("swapi.js", () => {
   });
 
   describe("Star Wars Planets", () => {
+    let fakeData = {name: "test planet", climate: "test climate"}
+    beforeEach(() => {
+      window.fetch.callsFake(() =>
+        Promise.resolve({json: () => Promise.resolve(fakeData)})
+      );
+      let input = document.querySelector("#planetInput");
+      let form = document.querySelector("#planetForm");
+      input.value = "1";
+      // form.submit()
+    })
     it("On submit of the planet form, fetch that planet's data from the correct url", () => {
-      expect(myFunction(9001)).to.be.true;
+      expect(window.fetch).to.have.been.calledWith(
+        "https://swapi.co/api/planets/1/"
+      );
     });
 
-    it("When the promise resolves, display the name and climate of the planet in the `#planetData`", () => {
-      expect(myFunction(42)).to.be.false;
+    it("When the promise resolves, display the name and climate of the planet in the `#planetData`", done => {
+      //
+      setTimeout(() => {
+        let div = document.getElementById("planetData");
+        expect(div.innerText).equal(`<p>Name: ${fakeData.name}</p> <p>Climate: ${fakeData.climate}`);
+        done();
+      }, 0);
     });
 
     it("Validates that the planet id is a number between 1 and 60", () => {
@@ -74,12 +91,32 @@ describe("swapi.js", () => {
 });
 
 describe("numbers.js", () => {
+  beforeEach(() => {
+    sinon.stub(window, "fetch")
+  })
+
+  afterEach(() => {
+    window.fetch.restore();
+  })
+
   describe("Number One", () => {
+    let fakeData = "Fake test fact"
+    beforeEach(() => {
+      window.fetch.callsFake(() =>
+        Promise.resolve({text: () => Promise.resolve(fakeData)})
+      );
+      let button = document.querySelector("#number-one");
+      button.click();
+    })
     it("When a user clicks on the button 'Facts About 1', fetch a random fact about the number 1", () => {
-      expect(myVariable).to.eq(42);
+      expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/1/trivia`)
     });
-    it("When the promise is resolved, a random fact about the number 1 should be displayed in the `#one-facts` div", () => {
-      expect(myVariable).to.eq(42);
+    it("When the promise is resolved, a random fact about the number 1 should be displayed in the `#one-facts` div", done => {
+      setTimeout(() => {
+        let div = document.getElementById("one-facts");
+        expect(div.innerText).equal(fakeData);
+        done();
+      }, 0);
     });
   });
 
