@@ -44,7 +44,7 @@ describe("swapi.js", () => {
       let input = document.querySelector("#planetInput");
       let form = document.querySelector("#planetForm");
       input.value = "1";
-      // form.submit()
+      // submit the form
     })
     it("On submit of the planet form, fetch that planet's data from the correct url", () => {
       expect(window.fetch).to.have.been.calledWith(
@@ -91,32 +91,12 @@ describe("swapi.js", () => {
 });
 
 describe("numbers.js", () => {
-  beforeEach(() => {
-    sinon.stub(window, "fetch")
-  })
-
-  afterEach(() => {
-    window.fetch.restore();
-  })
-
   describe("Number One", () => {
-    let fakeData = "Fake test fact"
-    beforeEach(() => {
-      window.fetch.callsFake(() =>
-        Promise.resolve({text: () => Promise.resolve(fakeData)})
-      );
-      let button = document.querySelector("#number-one");
-      button.click();
-    })
     it("When a user clicks on the button 'Facts About 1', fetch a random fact about the number 1", () => {
-      expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/1/trivia`)
+      expect(myVariable).to.eq(42);
     });
-    it("When the promise is resolved, a random fact about the number 1 should be displayed in the `#one-facts` div", done => {
-      setTimeout(() => {
-        let div = document.getElementById("one-facts");
-        expect(div.innerText).equal(fakeData);
-        done();
-      }, 0);
+    it("When the promise is resolved, a random fact about the number 1 should be displayed in the `#one-facts` div", () => {
+      expect(myVariable).to.eq(42);
     });
   });
 
