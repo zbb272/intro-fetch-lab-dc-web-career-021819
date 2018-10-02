@@ -41,29 +41,46 @@ describe("swapi.js", () => {
       window.fetch.callsFake(() =>
         Promise.resolve({json: () => Promise.resolve(fakeData)})
       );
-      let input = document.querySelector("#planetInput");
-      let form = document.querySelector("#planetForm");
-      input.value = "1";
-      // submit the form
     })
     it("On submit of the planet form, fetch that planet's data from the correct url", () => {
+      //I think I need to add input and form variables here, since the 3rd test requires different values
+      let input = document.querySelector("#planetInput");
+      let button = document.querySelector("#findPlanet");
+      input.value = "1";
+      button.click()
       expect(window.fetch).to.have.been.calledWith(
         "https://swapi.co/api/planets/1/"
       );
     });
 
     it("When the promise resolves, display the name and climate of the planet in the `#planetData`", done => {
-      //
+      //I think I need to add input and form variables here, since the 3rd test requires different values
       setTimeout(() => {
         let div = document.getElementById("planetData");
-        expect(div.innerText).equal(`<p>Name: ${fakeData.name}</p> <p>Climate: ${fakeData.climate}`);
+        expect(div.innerHTML).equal(`<p>Name: ${fakeData.name}</p> <p>Climate: ${fakeData.climate}</p>`);
         done();
       }, 0);
     });
 
     it("Validates that the planet id is a number between 1 and 60", () => {
-      // multiple expects here
-      expect(myFunction(42)).to.be.false;
+      // should I move the input and form variable declarations into each it statement, since I'll need to change the value on this test?
+      let input = document.querySelector("#planetInput");
+      let button = document.querySelector("#findPlanet");
+      let div = document.querySelector("#planetData")
+      input.value = "0";
+      button.click()
+
+      expect(div.innerText).equal("please enter a number between 1 and 60");
+
+      //check to see if the number is <= 60
+      input.value = "61";
+      //submit form
+      expect(div.innerText).equal("please enter a number between 1 and 60");
+
+      //check to see if the number is in fact a number
+      input.value = "test";
+      //Submit form
+      expect(div.innerText).equal("please enter a number between 1 and 60");
     });
   });
 
