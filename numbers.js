@@ -3,7 +3,7 @@ function fetchTrivia(num) {
 }
 
 function showOneTrivia() {
-  let div = document.querySelector('#one-facts')
+  const div = document.querySelector('#one-facts')
   div.innerHTML = ''
   fetchTrivia(1).then(trivia => {
     div.innerHTML = trivia
@@ -11,9 +11,9 @@ function showOneTrivia() {
 }
 
 function showTrivia() {
-  let div = document.querySelector('#random-math-fact')
+  const div = document.querySelector('#random-math-fact')
   div.innerHTML = ''
-  let num = document.querySelector('#pick-a-number').value
+  const num = document.querySelector('#pick-a-number').value
 
   if (num === '') {
     div.innerHTML = 'please enter a valid number'
@@ -29,7 +29,7 @@ function fetchYearFact(year) {
 }
 
 function showYearFact(year) {
-  let div = document.querySelector('#year-history')
+  const div = document.querySelector('#year-history')
   div.innerHTML = ''
   fetchYearFact(year).then(fact => {
     div.innerHTML = fact
@@ -50,7 +50,7 @@ function getAllTheNumbers() {
 }
 
 function showAllTheNumbers() {
-  let div = document.querySelector('#all-the-numbers')
+  const div = document.querySelector('#all-the-numbers')
   div.innerHTML = ''
   getAllTheNumbers().then(numbers => {
     let html = '<ul>'

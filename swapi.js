@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  crawlButton = document.querySelector('#crawlBtn')
+  const crawlButton = document.querySelector('#crawlBtn')
   crawlButton.addEventListener('click', getOpeningCrawl)
-  planetSelector = document.querySelector('#planetForm')
+
+  const planetSelector = document.querySelector('#planetForm')
   planetSelector.addEventListener('submit', getPlanet)
   getDroids()
 })
@@ -17,8 +18,8 @@ const getOpeningCrawl = () => {
 
 const getPlanet = e => {
   e.preventDefault()
-  currentPlanet = parseInt(document.querySelector('#planetInput').value)
-  planetData = document.getElementById('planetData')
+  const currentPlanet = parseInt(document.querySelector('#planetInput').value)
+  const planetData = document.getElementById('planetData')
   if (isNaN(currentPlanet)) {
     planetData.innerText = 'please enter a number between 1 and 60'
   } else if (currentPlanet < 1 || currentPlanet > 60) {
@@ -33,9 +34,9 @@ const getPlanet = e => {
 }
 
 const getDroids = () => {
-  let droidIDs = [2, 3]
+  const droidIDs = [2, 3]
   droidIDs.map(id => {
-    let droidDiv = document.getElementById(`droid-${id}`)
+    const droidDiv = document.getElementById(`droid-${id}`)
 
     fetch(`https://swapi.co/api/people/${id}/`)
       .then(r => r.json())
@@ -45,7 +46,7 @@ const getDroids = () => {
           <p><strong>Mass:</strong> ${droid.mass}</p>
           <p><span class='home-planet'></span></p></br>
           <button>Show Homeworld Details</button>`
-        let button = droidDiv.querySelector('button')
+        const button = droidDiv.querySelector('button')
         button.addEventListener('click', function() {
           fetch(droid.homeworld)
             .then(r => r.json())
