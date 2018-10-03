@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   crawlButton = document.querySelector("#crawlBtn");
   crawlButton.addEventListener("click", getOpeningCrawl);
-  planetSelector = document.querySelector("#findPlanet");
-  planetSelector.addEventListener("click", getPlanet);
+  planetSelector = document.querySelector("#planetForm");
+  planetSelector.addEventListener("submit", getPlanet);
   getDroids();
 });
 
