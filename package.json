@@ -3,8 +3,7 @@
   "description": "Practicing fetch using SWAPI and Numbers API.",
   "scripts": {
     "postinstall": "gem install learn-co",
-    "test":
-      "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
+    "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +26,8 @@
   "homepage": "https://github.com/learn-co-curriculum/intro-fetch-lab#readme",
   "devDependencies": {
     "learn-browser": "^0.1.14"
+  },
+  "dependencies": {
+    "sinon-chai": "^3.2.0"
   }
 }

@@ -8,30 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const getOpeningCrawl = () => {
-  fetch('https://swapi.co/api/films/1/')
+  fetch("https://swapi.co/api/films/1/")
     .then(r => r.json())
     .then(d => {
-      crawlDiv = document.getElementById('crawlDiv')
-      crawlDiv.innerText = d.opening_crawl
-    })
-}
+      crawlDiv = document.getElementById("crawlDiv");
+      crawlDiv.innerText = d.opening_crawl;
+    });
+};
 
 const getPlanet = e => {
   e.preventDefault()
   const currentPlanet = parseInt(document.querySelector('#planetInput').value)
   const planetData = document.getElementById('planetData')
+
   if (isNaN(currentPlanet)) {
-    planetData.innerText = 'please enter a number between 1 and 60'
+    planetData.innerText = "please enter a number between 1 and 60";
   } else if (currentPlanet < 1 || currentPlanet > 60) {
-    planetData.innerText = 'please enter a number between 1 and 60'
+    planetData.innerText = "please enter a number between 1 and 60";
   } else {
     fetch(`https://swapi.co/api/planets/${currentPlanet}/`)
       .then(r => r.json())
       .then(d => {
-        planetData.innerHTML = `<p>Name: ${d.name}</p> <p>Climate: ${d.climate}`
-      })
+        planetData.innerHTML = `<p>Name: ${d.name}</p> <p>Climate: ${
+          d.climate
+        }`;
+      });
   }
-}
+};
 
 const getDroids = () => {
   const droidIDs = [2, 3]
@@ -48,14 +51,15 @@ const getDroids = () => {
           <button>Show Homeworld Details</button>`
         const button = droidDiv.querySelector('button')
         button.addEventListener('click', function() {
+
           fetch(droid.homeworld)
             .then(r => r.json())
             .then(planet => {
               droidDiv.querySelector(
                 `.home-planet`
-              ).innerHTML = `<strong>Home World:</strong> ${planet.name}`
-            })
-        })
-      })
-  })
-}
+              ).innerHTML = `<strong>Home World:</strong> ${planet.name}`;
+            });
+        });
+      });
+  });
+};

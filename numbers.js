@@ -15,7 +15,7 @@ function showTrivia() {
   div.innerHTML = ''
   const num = document.querySelector('#pick-a-number').value
 
-  if (num === '') {
+  if (isNaN(num)) {
     div.innerHTML = 'please enter a valid number'
   } else {
     fetchTrivia(num).then(trivia => {
@@ -39,6 +39,7 @@ function showYearFact(year) {
 function addYearFactInterval() {
   let year = new Date().getFullYear()
   showYearFact(year)
+  console.log("about to setInterval");
   setInterval(() => {
     year--
     showYearFact(year)
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let oneButton = document.querySelector('#number-one')
   oneButton.addEventListener('click', showOneTrivia)
   let triviaInput = document.querySelector('#pick-a-number')
-  triviaInput.addEventListener('keyup', showTrivia)
+  triviaInput.addEventListener('input', showTrivia)
   addYearFactInterval()
   let allNumbersButton = document.querySelector('#all-numbers-button')
   allNumbersButton.addEventListener('click', showAllTheNumbers)
