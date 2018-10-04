@@ -47,7 +47,7 @@ function addYearFactInterval() {
 }
 
 function getAllTheNumbers() {
-  return fetch('http://numbersapi.com/1..1000').then(res => res.json())
+  return fetch('http://numbersapi.com/1..100').then(res => res.json())
 }
 
 function showAllTheNumbers() {

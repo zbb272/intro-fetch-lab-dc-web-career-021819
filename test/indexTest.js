@@ -100,9 +100,9 @@ describe("Fetch exercises", () => {
     });
 
     describe("These Are The Droids", () => {
-      beforeEach(() => {
-        window.fecth.withArgs("2", "3")
-      })
+      // beforeEach(() => {
+      //   window.fecth.withArgs()
+      // })
       it("When the page loads, fetch the data for the characters", () => {
         expect(myFunction(9001)).to.be.true;
       });
@@ -218,11 +218,26 @@ describe("Fetch exercises", () => {
     });
 
     describe("All the Numbers", () => {
-      it("When a user clicks the button, fetch facts for one hundred random numbers", () => {
-        expect(myFunction(9001)).to.be.true;
+      let button = document.querySelector('#all-numbers-button')
+      let div = document.querySelector('#all-the-numbers')
+      let fakeData = {"one": "test fact 1", two: "test fact 2"}
+
+      beforeEach(() => {
+        window.fetch.callsFake(() =>
+          Promise.resolve({ json: () => Promise.resolve(fakeData) })
+        );
+        button.click();
       });
-      it("When the promise is resolved, all facts should be displayed in the `#all-the-numbers` div", () => {
-        expect(myFunction(9001)).to.be.true;
+
+      it("When a user clicks the button, fetch facts for one hundred random numbers", () => {
+        expect(window.fetch).to.have.been.calledWith("http://numbersapi.com/1..100")
+      });
+      it("When the promise is resolved, all facts should be displayed in the `#all-the-numbers` div", done => {
+        setTimeout(() => {
+          let div = document.querySelector('#all-the-numbers');
+          expect(div.innerHTML).equal(`<ul><li>test fact 1</li><li>test fact 2</li></ul>`);
+          done();
+        }, 0)
       });
     });
   });
