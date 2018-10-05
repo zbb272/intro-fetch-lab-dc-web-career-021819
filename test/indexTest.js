@@ -4,21 +4,28 @@ var expect = chai.expect;
 document.addEventListener("submit", (e) => e.preventDefault())
 
 sinon.spy(window, "setInterval")
+sinon.stub(window, 'fetch');
+
+let fakeData = 'test fact about a year'
+window.fetch.callsFake(() =>
+  Promise.resolve({ text: () => Promise.resolve(fakeData) })
+);
 
 describe("Fetch exercises", () => {
 
   after(() => {
     window.setInterval.restore()
+    window.fetch.restore();
   })
 
   describe("swapi.js", () => {
-    beforeEach(() => {
-      sinon.stub(window, "fetch");
-    });
-
-    afterEach(() => {
-      window.fetch.restore();
-    });
+    // beforeEach(() => {
+    //   sinon.stub(window, "fetch");
+    // });
+    //
+    // afterEach(() => {
+    //   window.fetch.restore();
+    // });
 
     describe("Opening Crawl", () => {
       let fakeData = { opening_crawl: "test opening crawl" };
@@ -125,14 +132,19 @@ describe("Fetch exercises", () => {
     });
   });
 
-  describe("numbers.js", () => {
-    beforeEach(() => {
-      sinon.stub(window, "fetch");
-    });
 
-    afterEach(() => {
-      window.fetch.restore();
-    });
+
+
+  describe("numbers.js", () => {
+    // beforeEach(() => {
+    //   console.log('before stub');
+    //   sinon.stub(window, "fetch");
+    // });
+    //
+    // afterEach(() => {
+    //   window.fetch.restore();
+    //   console.log('after stub restored');
+    // });
 
     describe("Number One", () => {
       let fakeData = 'test fact about the number 1'
@@ -198,20 +210,44 @@ describe("Fetch exercises", () => {
     });
     // we aren't quite sure how to do this?
     describe("Those who fail to study history", () => {
+      const div = document.getElementById('year-history');
+      let fakeData = 'test fact about a year'
 
-      it("When the page loads, fetch a fact about this year", () => {
-        expect(myFunction(9001)).to.be.true;
+      // beforeEach(() => {
+      //   console.log('before callsFake');
+      //   window.fetch.callsFake(() =>
+      //     Promise.resolve({ text: () => Promise.resolve(fakeData) })
+      //   );
+      // });
+
+      it("When the page loads, fetch a fact about this year", (done) => {
+        const year = new Date().getFullYear();
+        // console.log('about to test fetch');
+        setTimeout(()=>{
+          // console.log('testing fetch');
+          expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/${year}/year`);
+          done();
+        }, 0)
       });
-      it("When the promise is resolved, the fact should be displayed in the `#year-history` div", () => {
-        expect(myFunction(9001)).to.be.true;
+
+      it("When the promise is resolved, the fact should be displayed in the `#year-history` div", (done) => {
+        console.log('before testing div innerText');
+        setTimeout(()=> {
+          console.log('after testing div innerText');
+          expect(div.innerText).equal(fakeData);
+          done();
+        }, 0)
       });
+
       // how do we test setInterval callback functions?
       it("Every five seconds, the previous year`s fact should be fetched", done => {
         console.log("about to test setInterval");
         setTimeout(() => {
           console.log("testing setInterval");
           expect(window.setInterval).to.have.been.calledWith(sinon.match.func, 5000)
-          done()
+          let every5SecsFn = window.setInterval.getCall(0).args[0]
+          expect(every5SecsFn).to.change(window.fetch, 'callCount').by(1);
+          done();
         }, 0)
 
       });

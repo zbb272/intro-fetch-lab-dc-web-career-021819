@@ -29,9 +29,11 @@ function fetchYearFact(year) {
 }
 
 function showYearFact(year) {
+  console.log('before fetching');
   const div = document.querySelector('#year-history')
   div.innerHTML = ''
   fetchYearFact(year).then(fact => {
+    console.log('before setting innerHTML');
     div.innerHTML = fact
   })
 }
