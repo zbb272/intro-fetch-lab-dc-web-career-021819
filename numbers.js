@@ -38,7 +38,7 @@ function showYearFact(year) {
   })
 }
 
-function addYearFactInterval() {
+function setYearFactInterval() {
   let year = new Date().getFullYear()
   showYearFact(year)
   console.log("about to setInterval");
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   oneButton.addEventListener('click', showOneTrivia)
   let triviaInput = document.querySelector('#pick-a-number')
   triviaInput.addEventListener('input', showTrivia)
-  addYearFactInterval()
+  setYearFactInterval()
   let allNumbersButton = document.querySelector('#all-numbers-button')
   allNumbersButton.addEventListener('click', showAllTheNumbers)
 })
