@@ -4,7 +4,6 @@ function fetchSwapi(type, num) {
 
 
 function getOpeningCrawl() {
-  console.log("clicked");
   fetchSwapi('films', 4)
     .then(d => {
       crawlDiv = document.getElementById("crawlDiv");
