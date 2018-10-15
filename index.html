@@ -27,7 +27,7 @@
         <h2>Planet Search</h2>
         <form id="planetForm">
           <input id="planetInput" type="text" placeholder="enter planet number"/>
-          <button type="submit">Find Planet!</button>
+          <button id="findPlanet" type="submit">Find Planet!</button>
         </form>
         <div id="planetData"></div>
 
@@ -65,7 +65,7 @@
   <!-- Include Mocha and set it up for BDD-style testing. -->
   <script src="node_modules/mocha/mocha.js"></script>
   <script>
-  mocha.setup('bdd')
+  mocha.setup("bdd");
 </script>
 
   <!-- Include Chai as the matcher library. -->
@@ -74,12 +74,15 @@
   <!-- Include Sinon as the library for spies, stubs, and mocks. -->
   <script src="node_modules/sinon/pkg/sinon.js"></script>
 
+  <!-- Include Sinon-Chai expectations for spies. -->
+  <script src="node_modules/sinon-chai/lib/sinon-chai.js"></script>
+
   <!-- Include the student's JavaScript file(s). -->
   <script type="text/javascript" src="swapi.js"></script>
   <script type="text/javascript" src="numbers.js"></script>
 
   <!-- Include the JavaScript file(s) containing the tests. -->
-  <script src="test/indexTest.js"></script>
+  <script src="test/numbersTest.js"></script>
 
   <!-- Include Flatiron School's minified test runner to push results to Learn. -->
   <script src="node_modules/learn-browser/learnBrowser.min.js"></script>
