@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let oneButton = document.querySelector('#number-one')
   oneButton.addEventListener('click', showOneTrivia)
   let triviaInput = document.querySelector('#pick-a-number')
-  triviaInput.addEventListener('input', showTrivia)
+  triviaInput.addEventListener('submit', showTrivia)
   setYearFactInterval()
   let allNumbersButton = document.querySelector('#all-numbers-button')
   allNumbersButton.addEventListener('click', showAllTheNumbers)

@@ -85,9 +85,9 @@ Let's nerd out.
 2.  Pick a Number, Any Number.
 
   * define a function, `showTrivia()`
-  * when a user submits a number in the input
+  * when a user Submits a number in the input
   * fetch a fact about that number
-  * Try adding a validation so that a user can't submit a non-number
+  * Add some validation so that a user can't submit a non-number
   * Show the fact on the screen in the `#random-math-fact` div
 
 
