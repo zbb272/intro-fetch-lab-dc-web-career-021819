@@ -12,9 +12,9 @@ API Documentation for SWAPI is at [https://swapi.co/documentation](https://swapi
 
 1.  Opening Crawl - Star Wars Episode 4 (`getOpeningCrawl`)
 
-* When the user clicks the button "Get Opening Crawl", it should trigger the function `getOpeningCrawl` which should fetch the data from the correct URL
+* When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for Star Wars Episode 4: A New Hope
   _NOTE: The ID for Episode 4 is 1_
-* When the promise is resolved, the 'opening crawl' should appear on the page in the `#crawlDiv`
+* When the promise is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
 
 Getting data from SWAPI is simple! We pass the url into `fetch`, then add the handling behavior for the response with `.then`:
 
@@ -49,17 +49,17 @@ promiseForData
 
 2.  Star Wars Planets (`getPlanet`)
 
-* When a user enters a number in the `#planetInput`, on submit it should call `getPlanet`
-* `getPlanet` which will fetch that planet's data from the correct url
-* When the promise resolves, display the name and climate of the planet in the `#planetData`
-* only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number
+* If a user enters an integer in the `#planetInput`, on submit it should call `getPlanet`, using the user input for the id of the planet to fetch
+  _NOTE: only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number_
+* `getPlanet` should fetch that planet's data from the correct url
+* When the promise resolves, it should display the name and climate of the planet in the `#planetData` div
 
 3.  These Are The Droids You're Looking For (`getDroids, getHomePlanet`)
 
-* When the page loads, fetch the data for the characters C-3P0 (id: 2) and R2-D2 (id: 3)
-* Show each droid's name, height, and mass in the appropriate spans in the `#droid-2` and `#droid-3` divs
-* On click of the `#droid-2-btn` and `#droid-3-btn` the `getHomePlanet` function should be called
-* This function should fetch to the api _again_ to get information about the planet
+* When you click the `#find-droids` button, call the `getDroids` function, which should fetch the data for the characters C-3P0 (id: 2) and R2-D2 (id: 3)
+* When the promise resolves, it should then display each droid's name, height, and mass in the appropriate spans in the `#droid-2` and `#droid-3` divs
+* On click of the `#droid-2-btn` and `#droid-3-btn` the `getHomePlanet` function should be called with the correct homeworld planet url and the corresponding droid id
+* This function should fetch to the api _again_ to get information about the planet, then display the homeworld name in the `droid-2-homeworld` and `droid-3-homeworld` spans
 
 * Things to consider:
   * What information do you need from the first fetch to make the second?
