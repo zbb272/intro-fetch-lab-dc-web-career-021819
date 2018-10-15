@@ -72,8 +72,8 @@ describe("swapi.js", () => {
   })
 
   describe("Find the droids", () => {
-    let fake3PO = {name: 'Test 3PO', height:'test 3PO height', mass:'test 3PO mass', homeworld: 'https://swapi.co/api/planets/1'}
-    let fakeR2 = {name: 'Test R2', height:'test R2 height', mass:'test R2 mass', homeworld: 'https://swapi.co/api/planets/8'}
+    let fake3PO = {name: 'Test 3PO name', height:'test 3PO height', mass:'test 3PO mass', homeworld: 'https://swapi.co/api/planets/1'}
+    let fakeR2 = {name: 'Test R2 name', height:'test R2 height', mass:'test R2 mass', homeworld: 'https://swapi.co/api/planets/8'}
     let fakeTatooine = {name: 'Test Tatooine'}
     let fakeNaboo = {name: 'Fake Naboo'}
 
@@ -81,13 +81,27 @@ describe("swapi.js", () => {
     let divR2 = document.querySelector("#droid-3")
 
     beforeEach(() => {
-      window.fetch.withArgs("https://swapi.co/api/people/2").returns(Promise.resolve({json: () => Promise.resolve(fake3PO)}))
-      window.fetch.withArgs("https://swapi.co/api/people/3").returns(Promise.resolve({json: () => Promise.resolve(fakeR2)}))
-      window.fetch.withArgs("https://swapi.co/api/planets/1").returns(Promise.resolve({json: () => Promise.resolve(fakeTatooine)}))
-      window.fetch.withArgs("https://swapi.co/api/planets/8").returns(Promise.resolve({json: () => Promise.resolve(fakeNaboo)}))
+      window.fetch.callsFake((url) => {
+        switch (url) {
+          case "https://swapi.co/api/people/2":
+            return Promise.resolve({json: () => Promise.resolve(fake3PO)})
+            break;
+          case "https://swapi.co/api/people/3":
+            return Promise.resolve({json: () => Promise.resolve(fakeR2)})
+            break;
+          case "https://swapi.co/api/planets/1":
+            debugger
+            return Promise.resolve({json: () => Promise.resolve(fakeTatooine)})
+            break;
+          case "https://swapi.co/api/planets/8":
+            return Promise.resolve({json: () => Promise.resolve(fakeNaboo)})
+            break;
+        }
+      })
       getDroids()
     })
 
+    afterEach
     it("Function 'getDroids' fetches the 2 droid's data from the correct urls", () => {
       expect(window.fetch).to.have.been.calledWith('https://swapi.co/api/people/2')
       expect(window.fetch).to.have.been.calledWith('https://swapi.co/api/people/3')
@@ -146,186 +160,3 @@ describe("swapi.js", () => {
     })
   })
 });
-
-
-//
-//       beforeEach(() => {
-//         window.fetch.withArgs("https://swapi.co/api/people/2").returns(Promise.resolve({ json: () => Promise.resolve(fake3PO) }))
-//         window.fetch.withArgs("https://swapi.co/api/people/3").returns(Promise.resolve({ json: () => Promise.resolve(fakeR2) }))
-//         window.fetch.withArgs("https://swapi.co/api/planets/1/").returns(Promise.resolve({ json: () => Promise.resolve(fakeTatooine) }))
-//         window.fetch.withArgs("https://swapi.co/api/planets/8/").returns(Promise.resolve({ json: () => Promise.resolve(fakeNaboo) }))
-//       })
-//       it("When the page loads, fetch the data for the characters", () => {
-//         console.log("inside droid it block, about to test setTimeout");
-//         setTimeout(()=>{
-//           console.log('about to test fetches');
-//           expect(window.fetch).to.have.been.calledWith("https://swapi.co/api/people/2");
-//           expect(window.fetch).to.have.been.calledWith("https://swapi.co/api/people/3");
-//           done();
-//         }, 0)
-//       });
-//
-//       it("When the promise resolves, display each droid's name, height, and mass on the screen in the appropriate divs", () => {
-//         expect(myFunction(42)).to.be.false;
-//       });
-//
-//       it("When the promise resolves, each droid div should have a button to 'Show Homeworld Details'", () => {
-//         expect(myFunction(42)).to.be.false;
-//       });
-//
-//       it('When the user clicks the button "Show Homeworld Details" for either droid, you should fetch the homeworld planet data from the correct URL', () => {
-//         expect(myVariable).to.eq(42);
-//       });
-//
-//       it("When the promise resolves, each droid's div should display the homeworld name in a span", () => {
-//         expect(myFunction(42)).to.be.false;
-//       });
-//     });
-//   });
-//
-//
-//
-//
-//   describe("numbers.js", () => {
-//     // beforeEach(() => {
-//     //   console.log('before stub');
-//     //   sinon.stub(window, "fetch");
-//     // });
-//     //
-//     // afterEach(() => {
-//     //   window.fetch.restore();
-//     //   console.log('after stub restored');
-//     // });
-//
-//     describe("Number One", () => {
-//       let fakeData = 'test fact about the number 1'
-//
-//       beforeEach(() => {
-//         window.fetch.callsFake(() =>
-//           Promise.resolve({ text: () => Promise.resolve(fakeData) })
-//         );
-//         const button = document.querySelector("#number-one");
-//         button.click();
-//       });
-//
-//       it("When a user clicks on the button 'Facts About 1', fetch a random fact about the number 1", () => {
-//         expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/1/trivia`);
-//       });
-//
-//       it("When the promise is resolved, a random fact about the number 1 should be displayed in the `#one-facts` div", (done) => {
-//         setTimeout(() => {
-//           const div = document.querySelector('#one-facts');
-//           expect(div.innerText).equal(fakeData)
-//           //reset values
-//           div.innerText = ''
-//           done();
-//         }, 0)
-//       });
-//     });
-//
-//     describe("Pick a Number", () => {
-//       const div = document.querySelector('#random-math-fact');
-//       const input = document.querySelector('#pick-a-number');
-//       const event = new Event('input');
-//
-//       const fakeData = 'test random math fact';
-//
-//       beforeEach(() => {
-//         window.fetch.callsFake(() =>
-//           Promise.resolve({ text: () => Promise.resolve(fakeData) })
-//         );
-//       })
-//
-//       it("On change of the number input, fetch a math fact about that number", () => {
-//         input.value = 4;
-//         input.dispatchEvent(event);
-//         input.value = ''
-//
-//         expect(window.fetch).to.have.been.calledWith("http://numbersapi.com/4/trivia");
-//       });
-//       it("When the promise is resolved, show the math fact on the screen in the `#random-math-fact` div", (done) => {
-//         setTimeout(() => {
-//           expect(div.innerText).equal(fakeData);
-//           done();
-//         }, 0)
-//       });
-//       it("Validates that the input is a number", () => {
-//         input.value = "test";
-//         input.dispatchEvent(event);
-//
-//         expect(div.innerText).equal('please enter a valid number');
-//         //reset values
-//         input.value = ''
-//         div.innerText = ''
-//       });
-//     });
-//     // we aren't quite sure how to do this?
-//     describe("Those who fail to study history", () => {
-//       const div = document.getElementById('year-history');
-//       let fakeData = 'test fact about a year'
-//
-//       // beforeEach(() => {
-//       //   console.log('before callsFake');
-//       //   window.fetch.callsFake(() =>
-//       //     Promise.resolve({ text: () => Promise.resolve(fakeData) })
-//       //   );
-//       // });
-//
-//       it("When the page loads, fetch a fact about this year", (done) => {
-//         const year = new Date().getFullYear();
-//         // console.log('about to test fetch');
-//         setTimeout(()=>{
-//           // console.log('testing fetch');
-//           expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/${year}/year`);
-//           done();
-//         }, 0)
-//       });
-//
-//       it("When the promise is resolved, the fact should be displayed in the `#year-history` div", (done) => {
-//         console.log('before testing div innerText');
-//         setTimeout(()=> {
-//           console.log('after testing div innerText');
-//           expect(div.innerText).equal(fakeData);
-//           done();
-//         }, 0)
-//       });
-//
-//       // how do we test setInterval callback functions?
-//       it("Every five seconds, the previous year`s fact should be fetched", done => {
-//         console.log("about to test setInterval");
-//         setTimeout(() => {
-//           console.log("testing setInterval");
-//           expect(window.setInterval).to.have.been.calledWith(sinon.match.func, 5000)
-//           let every5SecsFn = window.setInterval.getCall(0).args[0]
-//           expect(every5SecsFn).to.change(window.fetch, 'callCount').by(1);
-//           done();
-//         }, 0)
-//
-//       });
-//     });
-//
-//     describe("All the Numbers", () => {
-//       let button = document.querySelector('#all-numbers-button')
-//       let div = document.querySelector('#all-the-numbers')
-//       let fakeData = {"one": "test fact 1", two: "test fact 2"}
-//
-//       beforeEach(() => {
-//         window.fetch.callsFake(() =>
-//           Promise.resolve({ json: () => Promise.resolve(fakeData) })
-//         );
-//         button.click();
-//       });
-//
-//       it("When a user clicks the button, fetch facts for one hundred random numbers", () => {
-//         expect(window.fetch).to.have.been.calledWith("http://numbersapi.com/1..100")
-//       });
-//       it("When the promise is resolved, all facts should be displayed in the `#all-the-numbers` div", done => {
-//         setTimeout(() => {
-//           let div = document.querySelector('#all-the-numbers');
-//           expect(div.innerHTML).equal(`<ul><li>test fact 1</li><li>test fact 2</li></ul>`);
-//           done();
-//         }, 0)
-//       });
-//     });
-//   });
-// })

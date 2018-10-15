@@ -27,6 +27,7 @@ function getPlanet(e) {
 }
 
 function getHomePlanet(planetData, id) {
+  console.log(`about to fetch data for planet ${planetData}`);
   fetch(planetData)
   .then(r => r.json())
   .then(planet => {
@@ -56,5 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
   crawlButton.addEventListener('click', getOpeningCrawl)
   const planetSelector = document.querySelector('#planetForm')
   planetSelector.addEventListener('submit', getPlanet)
-  getDroids()
+  const droidBtn = document.querySelector("#find-droids")
+  droidBtn.addEventListener('click', getDroids)
 })

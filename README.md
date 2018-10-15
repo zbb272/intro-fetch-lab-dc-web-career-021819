@@ -56,7 +56,7 @@ promiseForData
 
 3.  These Are The Droids You're Looking For (`getDroids, getHomePlanet`)
 
-* When the page loads, call the `getDroids` function, which should fetch the data for the characters C-3P0 (id: 2) and R2-D2 (id: 3)
+* When you click the `#find-droids` button, call the `getDroids` function, which should fetch the data for the characters C-3P0 (id: 2) and R2-D2 (id: 3)
 * When the promise resolves, it should then display each droid's name, height, and mass in the appropriate spans in the `#droid-2` and `#droid-3` divs
 * On click of the `#droid-2-btn` and `#droid-3-btn` the `getHomePlanet` function should be called with the correct homeworld planet url and the corresponding droid id
 * This function should fetch to the api _again_ to get information about the planet, then display the homeworld name in the `droid-2-homeworld` and `droid-3-homeworld` spans
