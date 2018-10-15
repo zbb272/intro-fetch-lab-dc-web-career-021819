@@ -46,7 +46,7 @@ describe("Fetch exercises", () => {
     describe("Pick a Number", () => {
       const div = document.querySelector('#random-math-fact');
       const input = document.querySelector('#pick-a-number');
-      const event = new Event('submit');
+      const event = new Event('change');
 
       const fakeData = 'test random math fact';
 
@@ -56,7 +56,7 @@ describe("Fetch exercises", () => {
         );
       })
 
-      it("On 'submit' of the number input, fetch a math fact about that number", () => {
+      it("On change of the number input, fetch a math fact about that number", () => {
         input.value = "4";
         input.dispatchEvent(event);
         input.value = ''
@@ -137,7 +137,7 @@ describe("Fetch exercises", () => {
       it("When a user clicks the button, fetch facts for one hundred random numbers", () => {
         expect(window.fetch).to.have.been.calledWith("http://numbersapi.com/1..100")
       });
-      
+
       it("When the promise is resolved, all facts should be displayed in the `#all-the-numbers` div", done => {
         setTimeout(() => {
           let div = document.querySelector('#all-the-numbers');
