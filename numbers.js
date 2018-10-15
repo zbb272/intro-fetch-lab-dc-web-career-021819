@@ -10,7 +10,9 @@ function showOneTrivia() {
   })
 }
 
-function showTrivia() {
+function showTrivia(e) {
+  e.preventDefault()
+  console.log("here");
   const div = document.querySelector('#random-math-fact')
   div.innerHTML = ''
   const num = document.querySelector('#pick-a-number').value
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let oneButton = document.querySelector('#number-one')
   oneButton.addEventListener('click', showOneTrivia)
   let triviaInput = document.querySelector('#pick-a-number')
-  triviaInput.addEventListener('submit', showTrivia)
+  triviaInput.addEventListener('change', showTrivia)
   setYearFactInterval()
   let allNumbersButton = document.querySelector('#all-numbers-button')
   allNumbersButton.addEventListener('click', showAllTheNumbers)

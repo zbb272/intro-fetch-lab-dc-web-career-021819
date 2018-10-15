@@ -82,7 +82,7 @@ Let's nerd out.
 2.  Pick a Number, Any Number.
 
     * When a user enters a number in the input:
-      * On Submit, fetch a math fact about that number
+      * On Change, fetch a math fact about that number
       * Try adding a validation so that a user can't submit a non-number
       * Show it on the screen in the `#random-math-fact` div
 
