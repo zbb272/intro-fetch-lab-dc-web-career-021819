@@ -75,38 +75,31 @@ The [Numbers API](http://numbersapi.com/) is, in their words
 
 Let's nerd out.
 
-1.  The Number One:
+1.  Number One.
 
-  * Define a function, `showOneTrivia()`
-  * When a user clicks on the button 'Facts About 1', fetch a random fact about the number 1
-  * Add the fact to the DOM in the `#one-facts` div
-
+    * When a user clicks on the button 'Facts About 1':
+      * fetch a random fact about the number 1
+      * Add the fact to the DOM in the `#one-facts` div
 
 2.  Pick a Number, Any Number.
 
-  * define a function, `showTrivia()`
-  * when a user Submits a number in the input
-  * fetch a fact about that number
-  * Add some validation so that a user can't submit a non-number
-  * Show the fact on the screen in the `#random-math-fact` div
-
+    * When a user enters a number in the input:
+      * On Submit, fetch a math fact about that number
+      * Try adding a validation so that a user can't submit a non-number
+      * Show it on the screen in the `#random-math-fact` div
 
 3.  Those who fail to study history are doomed to repeat it
 
-  * define a function, `setYearFactInterval()`
-  * when the page loads
-  * start fetching a fact about a year every 5 seconds
-  * show the fact on the screen in the `#year-history` div
-  * Start with this year
-  * Every 5 seconds, get the fact about the previous year
-
+    * When the page loads, start an interval:
+      * Every 5 seconds, fetch a fact about a year and show it on the screen in the `#year-history` div
+      * Start with this year
+      * Every 5 seconds, get the fact about the previous year
 
 4.  All the numbers
 
-  * Define a function, `showAllTheNumbers()`
-  * When a user clicks the 'All of the Numbers' button
-  * fetch facts for one hundred random numbers
-  * append a div to `"#all-the-numbers"` to display all numbers and their fact
+    * When a user clicks the 'All of the Numbers' button
+      * fetch facts for one hundred random numbers
+      * append a div to `"#all-the-numbers"` to display all numbers and their fact
 
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
