@@ -73,16 +73,18 @@ The [Numbers API](http://numbersapi.com/) is, in their words
 
 Let's nerd out.
 
+**Note**: The Numbers API responds with Text (Not JSON!), so we can use the `.text()` method to parse the response instead of `.json()`.
+
 1.  Number One.
 
     * When a user clicks on the button 'Facts About 1':
-      * fetch a random fact about the number 1
+      * fetch a random fact about the number 1 from "/\<number>/trivia" endpoint.
       * Add the fact to the DOM in the `#one-facts` div
 
 2.  Pick a Number, Any Number.
 
     * When a user enters a number in the input:
-      * On Change, fetch a math fact about that number
+      * On _Change_, fetch a math fact about that number (Hint! Try looking into different event types!)
       * Try adding a validation so that a user can't submit a non-number
       * Show it on the screen in the `#random-math-fact` div
 
