@@ -45,11 +45,7 @@ describe("swapi.js", () => {
       );
     })
 
-    it("on submit of the planet form, calls the getPlanet function", () => {
-
-    })
-
-    it("On submit of the planet form, fetch that planet's data from the correct url", () => {
+    it("On click of the 'get planet' button, fetch that planet's data from the correct url", () => {
       input.value = 33
       button.click()
       expect(window.fetch).to.have.been.calledWith("https://swapi.co/api/planets/33");
