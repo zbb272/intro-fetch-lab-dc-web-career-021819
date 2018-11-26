@@ -86,16 +86,15 @@ describe("Fetch exercises", () => {
     describe("Those who fail to study history", () => {
       const div = document.getElementById('year-history');
       let fakeData = 'test fact about a year'
-      console.log('about to callsFake');
+
       window.fetch.callsFake(() =>
         Promise.resolve({ text: () => Promise.resolve(fakeData) })
       );
 
       it("When the page loads, fetch a fact about this year", (done) => {
         const year = new Date().getFullYear();
-        console.log('about to test fetch');
+
         setTimeout(()=>{
-          console.log('testing fetch');
           expect(window.fetch).to.have.been.calledWith(`http://numbersapi.com/${year}/year`);
           done();
         }, 0)
@@ -110,9 +109,8 @@ describe("Fetch exercises", () => {
       });
 
       it("Every five seconds, the previous year`s fact should be fetched", done => {
-        console.log("about to test setInterval");
+
         setTimeout(() => {
-          console.log("testing setInterval");
           expect(window.setInterval).to.have.been.calledWith(sinon.match.func, 5000)
           let every5SecsFn = window.setInterval.getCall(0).args[0]
           expect(every5SecsFn).to.change(window.fetch, 'callCount').by(1);
