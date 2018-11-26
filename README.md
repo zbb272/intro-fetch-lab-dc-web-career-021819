@@ -78,7 +78,7 @@ Let's nerd out.
 1.  Number One.
 
     * When a user clicks on the button 'Facts About 1':
-      * fetch a random fact about the number 1 from "/\<number>/trivia" endpoint.
+      * fetch a random fact about the number 1 from "/{number}/trivia" endpoint.
       * Add the fact to the DOM in the `#one-facts` div
 
 2.  Pick a Number, Any Number.
