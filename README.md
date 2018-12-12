@@ -56,8 +56,6 @@ promiseForData
 
 3.  These Are The Droids You're Looking For (`getDroids, getHomePlanet`)
 
-> > > > > > > master
-
 - Things to consider:
   - What information do you need from the first fetch to make the second?
   - When should you add the event listener for these two buttons?
