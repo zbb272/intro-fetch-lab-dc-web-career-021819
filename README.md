@@ -12,7 +12,7 @@ API Documentation for SWAPI is at [https://swapi.co/documentation](https://swapi
 
 1.  Opening Crawl - Star Wars Episode 4 (`getOpeningCrawl`)
 
-- When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for Star Wars Episode 4: A New Hope
+- When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for "Star Wars Episode 4: A New Hope"
   _NOTE: The ID for Episode 4 is 1_
 - When the promise is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
 
