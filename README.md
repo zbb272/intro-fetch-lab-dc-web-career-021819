@@ -14,7 +14,7 @@ API Documentation for SWAPI is at [https://swapi.co/documentation](https://swapi
 
 - When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for "Star Wars Episode 4: A New Hope"
   _NOTE: The ID for Episode 4 is 1_
-- When the promise is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
+- When the `Promise` is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
 
 Getting data from SWAPI is simple! We pass the url into `fetch`, then add the handling behavior for the response with `.then`:
 
@@ -37,9 +37,9 @@ We add a handler for the data with `then`.
 promiseForData.then(response => response.json())
 ```
 
-This is similar to attaching an event handler to handle a DOM event! When the result 'happens' - when SWAPI responds to the HTTP request with some data - we want to do something with that data. `then` is the way we specify what should happen when the promise resolves.
+This is similar to attaching an event handler to handle a DOM event! When the result 'happens' - when SWAPI responds to the HTTP request with some data - we want to do something with that data. `then` is the way we specify what should happen when the `Promise` resolves.
 
-In this case, we want to parse the body of the response as JSON, so we call the `.json()` method. `then()` returns a promise, and _that_ promise's handler will get the parsed JSON as input.
+In this case, we want to parse the body of the response as JSON, so we call the `.json()` method. `then()` returns a `Promise`, and _that_ `Promise`'s handler will get the parsed JSON as input.
 
 ```
 promiseForData
