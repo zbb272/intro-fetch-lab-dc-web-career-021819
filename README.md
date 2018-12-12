@@ -52,7 +52,7 @@ promiseForData
 - If a user enters an integer in the `#planetInput`, on submit it should call `getPlanet`, using the user input for the id of the planet to fetch
   _NOTE: only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number_
 - `getPlanet` should fetch that planet's data from the correct url
-- When the promise resolves, it should display the name and climate of the planet in the `#planetData` div
+- When the `Promise` resolves, it should display the name and climate of the planet in the `#planetData` div
 
 3.  These Are The Droids You're Looking For (`getDroids, getHomePlanet`)
 
