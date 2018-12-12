@@ -12,9 +12,9 @@ API Documentation for SWAPI is at [https://swapi.co/documentation](https://swapi
 
 1.  Opening Crawl - Star Wars Episode 4 (`getOpeningCrawl`)
 
-- When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for "Star Wars Episode 4: A New Hope"
+* When the user clicks "Get Opening Crawl" button, it should trigger the function `getOpeningCrawl` which will fetch the data for "Star Wars Episode 4: A New Hope"
   _NOTE: The ID for Episode 4 is 1_
-- When the `Promise` is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
+* When the `Promise` is resolved, the film's opening crawl should appear on the page in the `#crawlDiv`
 
 Getting data from SWAPI is simple! We pass the url into `fetch`, then add the handling behavior for the response with `.then`:
 
@@ -49,16 +49,16 @@ promiseForData
 
 2.  Star Wars Planets (`getPlanet`)
 
-- If a user enters an integer in the `#planetInput`, on submit it should call `getPlanet`, using the user input for the id of the planet to fetch
+* If a user enters an integer in the `#planetInput`, on submit it should call `getPlanet`, using the user input for the id of the planet to fetch
   _NOTE: only the numbers 1 through 60 are valid planet ids, so think about some way of validating the number_
-- `getPlanet` should fetch that planet's data from the correct url
-- When the `Promise` resolves, it should display the name and climate of the planet in the `#planetData` div
+* `getPlanet` should fetch that planet's data from the correct url
+* When the `Promise` resolves, it should display the name and climate of the planet in the `#planetData` div
 
 3.  These Are The Droids You're Looking For (`getDroids, getHomePlanet`)
 
-- Things to consider:
-  - What information do you need from the first fetch to make the second?
-  - When should you add the event listener for these two buttons?
+* Things to consider:
+  * What information do you need from the first fetch to make the second?
+  * When should you add the event listener for these two buttons?
 
 ### NERDY NUMBERS
 
@@ -72,29 +72,29 @@ Let's nerd out.
 
 1.  Number One.
 
-    - When a user clicks on the button 'Facts About 1':
-      - fetch a random fact about the number 1 from "/{number}/trivia" endpoint.
-      - Add the fact to the DOM in the `#one-facts` div
+    * When a user clicks on the button 'Facts About 1':
+      * fetch a random fact about the number 1 from "/{number}/trivia" endpoint.
+      * Add the fact to the DOM in the `#one-facts` div
 
 2.  Pick a Number, Any Number.
 
-    - When a user enters a number in the input:
-      - On _Change_, fetch a math fact about that number (Hint! Try looking into different event types!)
-      - Try adding a validation so that a user can't submit a non-number
-      - Show it on the screen in the `#random-math-fact` div
+    * When a user enters a number in the input:
+      * On _Change_, fetch a math fact about that number (Hint! Try looking into different event types!)
+      * Try adding a validation so that a user can't submit a non-number
+      * Show it on the screen in the `#random-math-fact` div
 
 3.  Those who fail to study history are doomed to repeat it
 
-    - When the page loads, start an interval:
-      - Every 5 seconds, fetch a fact about a year and show it on the screen in the `#year-history` div
-      - Start with this year
-      - Every 5 seconds, get the fact about the previous year
+    * When the page loads, start an interval:
+      * Every 5 seconds, fetch a fact about a year and show it on the screen in the `#year-history` div
+      * Start with this year
+      * Every 5 seconds, get the fact about the previous year
 
 4.  All the numbers
 
-    - When a user clicks the 'All of the Numbers' button
-      - fetch facts for one hundred random numbers
-      - append a div to `"#all-the-numbers"` to display all numbers and their fact
+    * When a user clicks the 'All of the Numbers' button
+      * fetch facts for one hundred random numbers
+      * append a div to `"#all-the-numbers"` to display all numbers and their fact
 
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
 🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓🔢🤓
@@ -103,6 +103,6 @@ Let's nerd out.
 
 ## Resources
 
-- [MDN Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [SWAPI](https://swapi.co/documentation)
-- [Numbers API](http://numbersapi.com/)
+* [MDN Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+* [SWAPI](https://swapi.co/documentation)
+* [Numbers API](http://numbersapi.com/)
